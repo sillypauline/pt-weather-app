@@ -28,245 +28,247 @@
   </head>
   <body>
     <div class="container" style="width: 40rem">
-      <div class="today-container">
-        <div class="current-card">
-          <div class="card-body">
-            <!-- ROW 1: SEARCH AREA -->
-            <div class="row">
-              <div class="col-8">
-                <form id="city-search-form">
-                  <div class="form-group">
-                    <input
-                      type="text"
-                      id="city-input"
-                      class="form-control"
-                      placeholder="Search by City..."
-                      autocomplete="off"
-                      ;
-                    />
+      <div class="weather-app-wrapper">
+        <div class="today-container">
+          <div class="current-card">
+            <div class="card-body">
+              <!-- ROW 1: SEARCH AREA -->
+              <div class="row">
+                <div class="col-8">
+                  <form id="city-search-form">
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        id="city-input"
+                        class="form-control"
+                        placeholder="Search by City..."
+                        autocomplete="off"
+                        ;
+                      />
+                    </div>
+                  </form>
+                </div>
+
+                <!-- SEARCH BUTTONS -->
+                <input
+                  type="submit"
+                  class="submit-button"
+                  id="submit-button"
+                  value="Search"
+                />
+
+                <button class="current-button" id="current-button">
+                  Current
+                </button>
+              </div>
+              <!--END OF ROW 1: SEARCH AREA-->
+
+              <!-- TODAY'S FORECAST -->
+
+              <!-- ROW 2: CITY NAME & DATE -->
+              <div class="row">
+                <div class="col-12">
+                  <div class="current-city-date">
+                    <h1 id="city-name">New York</h1>
+                    <ul>
+                      <li id="day-time">Last updated: Thursday, 1:28</li>
+                      <li id="today-description">I've got Sunshine...</li>
+                    </ul>
                   </div>
-                </form>
+                </div>
               </div>
+              <!-- END OF ROW 2: CITY NAME & DATE -->
 
-              <!-- SEARCH BUTTONS -->
-              <input
-                type="submit"
-                class="submit-button"
-                id="submit-button"
-                value="Search"
-              />
+              <!-- ROW 3, COL 1: CURRENT ICON & TEMP -->
+              <div class="row">
+                <div class="col-7">
+                  <div class="weather-temp">
+                    <img
+                      src="http://openweathermap.org/img/wn/01d@2x.png"
+                      alt="few-clouds"
+                      class="float-left"
+                      id="icon-today"
+                    />
+                    <div class="today-temp">
+                      <span class="temp-now" id="temp-now">
+                        <strong> 66 </strong>
+                      </span>
+                      <span class="units">
+                        <sup>
+                          <a href="#" id="celsius-link"> °C</a> |
 
-              <button class="current-button" id="current-button">
-                Current
-              </button>
+                          <a href="#" id="fahrenheit-link"> °F</a>
+                        </sup>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <!-- END OF ROW 3, COL 1: CURRENT ICON & TEMP -->
+
+                <!-- ROW 3, COL 2: RAIN & WIND INFO -->
+                <div class="col-5">
+                  <ul class="today-rain-wind">
+                    <li>
+                      Feels like:
+                      <span id="temp-feel"> 60 </span>
+                      °F
+                    </li>
+                    <li>
+                      Humidity:
+                      <span id="humidity-now"> 56 </span>
+                      %
+                    </li>
+                    <li>
+                      Wind:
+                      <span id="wind-now"> 8 </span>
+                      mph
+                    </li>
+                  </ul>
+                </div>
+                <!-- END OF ROW 3, COL 2: RAIN & WIND INFO -->
+              </div>
+              <!-- END OF ROW 3 -->
             </div>
-            <!--END OF ROW 1: SEARCH AREA-->
+            <!--END OF CARD BODY-->
+          </div>
+          <!--END OF CURRENT CARD-->
+        </div>
+        <!--END OF TODAY CONTAINER-->
 
-            <!-- TODAY'S FORECAST -->
-
-            <!-- ROW 2: CITY NAME & DATE -->
-            <div class="row">
-              <div class="col-12">
-                <div class="current-forecast">
-                  <h1 id="city-name">New York, New York</h1>
-                  <h3>
-                    Last updated:
-                    <span id="day-time">Thursday, 1:28</span>
-                  </h3>
+        <!-- FUTURE FORECAST -->
+        <div class="future-container">
+          <div class="row row-cols-6">
+            <!--DAY 1-->
+            <div class="col">
+              <div class="day-one">
+                <div class="card-body">
+                  <h5 class="card-title">Fri</h5>
+                  <p class="card-text">
+                    <img
+                      src="http://openweathermap.org/img/wn/01d@2x.png"
+                      alt="clear-sky"
+                      class="float-left"
+                      id="icon"
+                    />
+                    <br />
+                    <br />
+                    72
+                    <sup>°F</sup>
+                  </p>
                 </div>
               </div>
             </div>
-            <!-- END OF ROW 2: CITY NAME & DATE -->
 
-            <!-- ROW 3, COL 1: CURRENT ICON & TEMP -->
-            <div class="row">
-              <div class="col-6">
-                <div class="current-icon">
-                  <img
-                    src="http://openweathermap.org/img/wn/01d@2x.png"
-                    alt="few-clouds"
-                    class="float-left"
-                    id="icon-today"
-                  />
-                  <br />
-                  <span class="today-description" id="today-description">
-                    I've got Sunshine...
-                  </span>
+            <!--DAY 2-->
+            <div class="col">
+              <div class="day-two">
+                <div class="card-body">
+                  <h5 class="card-title">Sat</h5>
+                  <p class="card-text">
+                    <img
+                      src="http://openweathermap.org/img/wn/01d@2x.png"
+                      alt="clear-sky"
+                      class="float-left"
+                      id="icon"
+                    />
+                    <br />
+                    <br />
+                    69
+                    <sup>°F</sup>
+                  </p>
                 </div>
               </div>
-              <!-- END OF ROW 3, COL 1: CURRENT ICON & TEMP -->
-
-              <!-- ROW 3, COL 2: RAIN & WIND INFO -->
-              <div class="col-6">
-                <p class="today-temp">
-                  <span class="temperature" id="temp-now"> 66 </span>
-                  <span class="units">
-                    <sup>
-                      <a href="#" id="celsius-link"> °C</a> |
-
-                      <a href="#" id="fahrenheit-link"> °F</a>
-                    </sup>
-                  </span>
-                </p>
-
-                <p class="today-rain-wind">
-                  Feels like:
-                  <span id="temp-feel"> 60 </span>
-                  °F
-                  <br />
-
-                  Humidity:
-                  <span id="humidity-now"> 56 </span>
-                  %
-                  <br />
-
-                  Wind:
-                  <span id="wind-now"> 8 </span>
-                  mph
-                </p>
-              </div>
-              <!-- END OF ROW 3, COL 2: RAIN & WIND INFO -->
             </div>
-            <!-- END OF ROW 3 -->
+
+            <!--DAY 3-->
+            <div class="col">
+              <div class="day-three">
+                <div class="card-body">
+                  <h5 class="card-title">Sun</h5>
+                  <p class="card-text">
+                    <img
+                      src="http://openweathermap.org/img/wn/01d@2x.png"
+                      alt="clear-sky"
+                      class="float-left"
+                      id="icon"
+                    />
+                    <br />
+                    <br />
+                    66
+                    <sup>°F</sup>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!--DAY 4-->
+            <div class="col">
+              <div class="day-four">
+                <div class="card-body">
+                  <h5 class="card-title">Mon</h5>
+                  <p class="card-text">
+                    <img
+                      src="http://openweathermap.org/img/wn/01d@2x.png"
+                      alt="clear-sky"
+                      class="float-left"
+                      id="icon"
+                    />
+                    <br />
+                    <br />
+                    65
+                    <sup>°F</sup>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!--DAY 5-->
+            <div class="col">
+              <div class="day-five">
+                <div class="card-body">
+                  <h5 class="card-title">Tue</h5>
+                  <p class="card-text">
+                    <img
+                      src="http://openweathermap.org/img/wn/01d@2x.png"
+                      alt="clear-sky"
+                      class="float-left"
+                      id="icon"
+                    />
+                    <br />
+                    <br />
+                    67
+                    <sup>°F</sup>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!--DAY 6-->
+            <div class="col">
+              <div class="day-six">
+                <div class="card-body">
+                  <h5 class="card-title">Wed</h5>
+                  <p class="card-text">
+                    <img
+                      src="http://openweathermap.org/img/wn/01d@2x.png"
+                      alt="clear-sky"
+                      class="float-left"
+                      id="icon"
+                    />
+                    <br />
+                    <br />
+                    73
+                    <sup>°F</sup>
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
-          <!--END OF CARD BODY-->
+          <!--END OF FUTURE FORCAST ROW-->
         </div>
-        <!--END OF CURRENT CARD-->
+        <!--END OF FUTURE CONTAINER-->
       </div>
-      <!--END OF TODAY CONTAINER-->
-
-      <!-- FUTURE FORECAST -->
-      <div class="future-container">
-        <div class="row row-cols-6">
-          <!--DAY 1-->
-          <div class="col">
-            <div class="day-one">
-              <div class="card-body">
-                <h5 class="card-title">Fri</h5>
-                <p class="card-text">
-                  <img
-                    src="http://openweathermap.org/img/wn/01d@2x.png"
-                    alt="clear-sky"
-                    class="float-left"
-                    id="icon"
-                  />
-                  <br />
-                  <br />
-                  72
-                  <sup>°F</sup>
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!--DAY 2-->
-          <div class="col">
-            <div class="day-two">
-              <div class="card-body">
-                <h5 class="card-title">Sat</h5>
-                <p class="card-text">
-                  <img
-                    src="http://openweathermap.org/img/wn/01d@2x.png"
-                    alt="clear-sky"
-                    class="float-left"
-                    id="icon"
-                  />
-                  <br />
-                  <br />
-                  69
-                  <sup>°F</sup>
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!--DAY 3-->
-          <div class="col">
-            <div class="day-three">
-              <div class="card-body">
-                <h5 class="card-title">Sun</h5>
-                <p class="card-text">
-                  <img
-                    src="http://openweathermap.org/img/wn/01d@2x.png"
-                    alt="clear-sky"
-                    class="float-left"
-                    id="icon"
-                  />
-                  <br />
-                  <br />
-                  66
-                  <sup>°F</sup>
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!--DAY 4-->
-          <div class="col">
-            <div class="day-four">
-              <div class="card-body">
-                <h5 class="card-title">Mon</h5>
-                <p class="card-text">
-                  <img
-                    src="http://openweathermap.org/img/wn/01d@2x.png"
-                    alt="clear-sky"
-                    class="float-left"
-                    id="icon"
-                  />
-                  <br />
-                  <br />
-                  65
-                  <sup>°F</sup>
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!--DAY 5-->
-          <div class="col">
-            <div class="day-five">
-              <div class="card-body">
-                <h5 class="card-title">Tue</h5>
-                <p class="card-text">
-                  <img
-                    src="http://openweathermap.org/img/wn/01d@2x.png"
-                    alt="clear-sky"
-                    class="float-left"
-                    id="icon"
-                  />
-                  <br />
-                  <br />
-                  67
-                  <sup>°F</sup>
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!--DAY 6-->
-          <div class="col">
-            <div class="day-six">
-              <div class="card-body">
-                <h5 class="card-title">Wed</h5>
-                <p class="card-text">
-                  <img
-                    src="http://openweathermap.org/img/wn/01d@2x.png"
-                    alt="clear-sky"
-                    class="float-left"
-                    id="icon"
-                  />
-                  <br />
-                  <br />
-                  73
-                  <sup>°F</sup>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!--END OF FUTURE FORCAST ROW-->
-      </div>
-      <!--END OF FUTURE CONTAINER-->
+      <!-- END OF WEATHER APP WRAPPER -->
     </div>
     <!--END OF CONTAINER-->
 

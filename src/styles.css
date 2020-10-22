@@ -5,12 +5,11 @@ body {
   background-position: center center;
   margin: 10px 30px 50px 30px;
   padding: 20px auto;
+  font-family: "ROboto", sans-serif;
 }
 
 h1 {
-  text-align: left;
-  font-family: "Roboto", sans-serif;
-  font-size: 18px;
+  font-size: 24px;
   font-weight: bold;
   padding: 20px 10px 2px 15px;
   margin: 0 auto;
@@ -19,7 +18,6 @@ h1 {
 
 h3 {
   text-align: left;
-  font-family: "Roboto", sans-serif;
   font-size: 15px;
   font-weight: lighter;
   padding: 2px 10px 20px 15px;
@@ -29,17 +27,25 @@ h3 {
 
 h5 {
   text-align: center;
-  font-family: "Roboto", sans-serif;
   font-size: 14px;
   color: white;
   padding: 0 10px 0px 10px;
   margin: 0px 0px 0px 0px;
 }
 
-img {
-  max-width: 350px;
-  width: 100%;
-  height: 100%;
+ul {
+  margin: 0;
+  padding: 0 0 0 15px;
+}
+
+li {
+  list-style: none;
+  color: white;
+  font-size: 14px;
+  font-weight: 100;
+  line-height: 19px;
+  margin: 0;
+  padding: 0;
 }
 
 input {
@@ -63,6 +69,11 @@ footer {
   color: white;
   padding: 10px 10px 10px 10px;
   margin: 10px 10px 10px 10px;
+}
+
+.weather-app-wrapper {
+  max-width: 600px;
+  margin: 30px auto;
 }
 
 .row {
@@ -98,12 +109,31 @@ footer {
   align-self: center;
   background: rgba(255, 255, 255, 0.3);
   border-radius: 10px;
-  padding: 10px 20px;
+  padding: 10px 10px 10px 10px;
   margin: 60px 10px 10px 10px;
 }
 
-.current-icon img {
-  padding: 10px 50px 10px 50px;
+.weather-temp img {
+  margin-right: 4px;
+  float: left;
+  height: 80px;
+  width: 80px;
+}
+
+.temp-now {
+  font-size: 54px;
+  font-weight: 300px;
+  color: white;
+  margin: 30px 0px 0px 0px;
+}
+
+.today-temp sup {
+  font-size: 14px;
+  font-weight: 2px;
+  padding: 0 0 0 10px;
+  position: relative;
+  top: -28px;
+  left: -6px;
 }
 
 .today-description {
@@ -116,34 +146,8 @@ footer {
   padding: 2px 10px 20px 15px;
 }
 
-.today-temp {
-  text-align: center;
-  font-family: "Roboto", sans-serif;
-  font-size: 69px;
-  font-weight: 300px;
-  color: white;
-  margin: 30px 0px 0px 0px;
-  position: relative;
-  left: 10px;
-}
-
-.today-temp sup {
-  font-family: "Roboto", sans-serif;
-  font-size: 12px;
-  font-weight: 2px;
-  position: relative;
-  top: -36px;
-  left: -20px;
-  padding: 0 0 0 10px;
-}
-
 .today-rain-wind {
-  text-align: center;
-  font-family: "Roboto", sans-serif;
-  font-size: 16px;
-  font-weight: lighter;
-  color: white;
-  padding: 10px 10px 20px 10px;
+  padding: 10px 10px;
 }
 
 .card-future {
@@ -169,18 +173,18 @@ footer {
   min-width: 60px;
 }
 
-.card-text {
-  font-family: "Roboto", sans-serif;
-  text-align: center;
-  font-size: 42px;
-  font-weight: 2px;
-  color: white;
-}
-
 .card-temp {
   font-family: "Roboto", sans-serif;
   text-align: center;
   font-size: 18px;
+  font-weight: 2px;
+  color: white;
+}
+
+.card-text {
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  font-size: 42px;
   font-weight: 2px;
   color: white;
 }
