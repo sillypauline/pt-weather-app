@@ -27,6 +27,7 @@ h3 {
 
 h5 {
   text-align: center;
+  text-decoration: uppercase;
   font-size: 14px;
   color: white;
   padding: 0 10px 0px 10px;
@@ -45,6 +46,14 @@ li {
   font-weight: 100;
   line-height: 19px;
   margin: 0;
+  padding: 0;
+}
+
+img {
+  float: center;
+  height: 60px;
+  width: 60px;
+  margin-left: -7px;
   padding: 0;
 }
 
