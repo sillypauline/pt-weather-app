@@ -124,7 +124,7 @@ footer {
 
 .weather-temp img {
   margin-left: 2px;
-  margin-right: 4px;
+  margin-right: 2px;
   float: left;
   height: 80px;
   width: 80px;
@@ -144,6 +144,15 @@ footer {
   position: relative;
   top: -28px;
   left: -6px;
+}
+
+.today-temp .active {
+  color: white;
+  cursor: default;
+}
+
+.today-temp .active:hover {
+  text-decoration: none;
 }
 
 .today-description {

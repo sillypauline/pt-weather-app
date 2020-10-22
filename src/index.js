@@ -26,64 +26,32 @@ function formatDate() {
 let timeNow = document.querySelector("#day-time");
 timeNow.innerHTML = formatDate(now);
 
-// FEATURE 2
-// Add a search engine, when searching for a city (i.e. Paris),
-// display the city name on the page after the user submits the form.
-
-// BONUS FEATURE
-// Display a fake temperature (i.e 17) in Celsius and add a
-// link to convert it to Fahrenheit. When clicking on it, it
-// should convert the temperature to Fahrenheit.
-// When clicking on Celsius, it should convert it back to Celsius.
-
-function convertCelsius(event) {
-  event.preventDefault();
-  let tempCelsius = document.querySelector("#temp-now");
-
-  tempCelsius.innerHTML = `19`;
-}
-
-function convertFahrenheit(event) {
-  event.preventDefault();
-  let tempFahrenheit = document.querySelector("#temp-now");
-
-  tempFahrenheit.innerHTML = `66`;
-}
-
-let celsiusTemp = document.querySelector("#celsius-link");
-celsiusTemp.addEventListener("click", convertCelsius);
-
-let fahrenheitTemp = document.querySelector("#fahrenheit-link");
-fahrenheitTemp.addEventListener("click", convertFahrenheit);
-
 // WEEK 5 HOMEWORK
 // https://api.openweathermap.org/data/2.5/weather?q=paris&appid=33b8b562348753ed5be1de7a4e815fb7
 
 function showTemperature(response) {
-  document.querySelector("#city-name").innerHTML = response.data.name;
-  document.querySelector("#temp-now").innerHTML = Math.round(
-    response.data.main.temp
-  );
-  document.querySelector("#temp-feel").innerHTML = Math.round(
-    response.data.main.feels_like
-  );
-  document.querySelector("#humidity-now").innerHTML =
-    response.data.main.humidity;
-  document.querySelector("#wind-now").innerHTML = Math.round(
-    response.data.wind.speed
-  );
-  document.querySelector("#today-description").innerHTML =
-    response.data.weather[0].main;
-  document
-    .querySelector("#icon-today")
-    .setAttribute(
-      "src",
-      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-    );
+  let cityElement = document.querySelector("#city-name");
+  let temperatureElement = document.querySelector("#temp-now");
+  let tempFeelElement = document.querySelector("#temp-feel");
+  let humidityElement = document.querySelector("#humidity-now");
+  let windElement = document.querySelector("#wind-now");
+  let descriptionElement = document.querySelector("#today-description");
+  let dateElement = document.querySelector("#day-time");
+  let iconElement = document.querySelector("#icon-today");
 
-  document
-    .querySelector("#icon-today")
-    .setAttribute("alt", response.data.weather[0].description);
+  fahrenheitTemperature = response.data.main.temp;
+
+  cityElement.innerHTML = response.data.name;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+  tempFeelElement.innerHTML = Math.round(response.data.main.feels_like);
+  humidityElement.innerHTML = response.data.main.humidity;
+  windElement.innerHTML = Math.round(response.data.wind.speed);
+  descriptionElement.innerHTML = response.data.weather[0].main;
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 function searchCity(city) {
@@ -101,13 +69,6 @@ function handleSubmit(event) {
   searchCity(city);
 }
 
-let cityForm = document.querySelector("#city-search-form");
-cityForm.addEventListener("submit", handleSubmit);
-
-let searchButton = document.querySelector("#submit-button");
-searchButton.addEventListener("click", handleSubmit);
-
-// WEEK 5 Homework - BONUS
 // add Current button and insert geolocation API
 
 function searchLocation(position) {
@@ -125,7 +86,38 @@ function getCurrentLocation(event) {
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
 
+function showCelsiusTemp(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temp-now");
+  fahrenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
+  let celsiusTemperature = (fahrenheitTemperature - 32) * (5 / 9);
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+function showFahrenheitTemp(event) {
+  event.preventDefault();
+  fahrenheitLink.classList.add("active");
+  celsiusLink.classList.remove("active");
+  let temperatureElement = document.querySelector("#temp-now");
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+searchCity("New York");
+
+let fahrenheitTemperature = null;
+
+let cityForm = document.querySelector("#city-search-form");
+cityForm.addEventListener("submit", handleSubmit);
+
+let searchButton = document.querySelector("#submit-button");
+searchButton.addEventListener("click", handleSubmit);
+
 let currentLocationButton = document.querySelector("#current-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
-searchCity("New York");
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", showCelsiusTemp);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", showFahrenheitTemp);

@@ -91,13 +91,15 @@
                     />
                     <div class="today-temp">
                       <span class="temp-now" id="temp-now">
-                        <strong> 66 </strong>
+                        <strong> </strong>
                       </span>
                       <span class="units">
                         <sup>
                           <a href="#" id="celsius-link"> °C</a> |
 
-                          <a href="#" id="fahrenheit-link"> °F</a>
+                          <a href="#" id="fahrenheit-link" class="active">
+                            °F</a
+                          >
                         </sup>
                       </span>
                     </div>
@@ -110,18 +112,17 @@
                   <ul class="today-rain-wind">
                     <li>
                       Feels like:
-                      <span id="temp-feel"> 60 </span>
-                      °F
+                      <span id="temp-feel"></span
+                      ><span id="temp-feel-unit">°F</span>
                     </li>
                     <li>
                       Humidity:
-                      <span id="humidity-now"> 56 </span>
-                      %
+                      <span id="humidity-now"></span>%
                     </li>
                     <li>
                       Wind:
-                      <span id="wind-now"> 8 </span>
-                      mph
+                      <span id="wind-now"></span
+                      ><span id="wind-unit"> mph</span>
                     </li>
                   </ul>
                 </div>
