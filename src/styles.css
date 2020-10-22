@@ -123,6 +123,7 @@ footer {
 }
 
 .weather-temp img {
+  margin-left: 2px;
   margin-right: 4px;
   float: left;
   height: 80px;
