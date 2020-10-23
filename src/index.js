@@ -40,6 +40,8 @@ function showTemperature(response) {
   let iconElement = document.querySelector("#icon-today");
 
   fahrenheitTemperature = response.data.main.temp;
+  fahrenheitFeel = response.data.main.feels_like;
+  windSpeed = response.data.wind.speed;
 
   cityElement.innerHTML = response.data.name;
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
@@ -47,6 +49,7 @@ function showTemperature(response) {
   humidityElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
   descriptionElement.innerHTML = response.data.weather[0].main;
+  dateElement.innerHTML = formatDate(response.data.dt * 1000);
   iconElement.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
@@ -93,6 +96,17 @@ function showCelsiusTemp(event) {
   celsiusLink.classList.add("active");
   let celsiusTemperature = (fahrenheitTemperature - 32) * (5 / 9);
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
+
+  let tempFeelElement = document.querySelector("#temp-feel");
+  let celsiusFeel = (fahrenheitFeel - 32) * (5 / 9);
+  tempFeelElement.innerHTML = Math.round(celsiusFeel);
+  let tempFeelUnit = document.querySelector("#temp-feel-unit");
+  tempFeelUnit.innerHTML = `°C`;
+
+  let windElement = document.querySelector("#wind-now");
+  let windUnitElement = document.querySelector("#wind-unit");
+  windElement.innerHTML = Math.round(windSpeed * 1.609);
+  windUnitElement.innerHTML = ` km/h`;
 }
 
 function showFahrenheitTemp(event) {
@@ -101,11 +115,23 @@ function showFahrenheitTemp(event) {
   celsiusLink.classList.remove("active");
   let temperatureElement = document.querySelector("#temp-now");
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+
+  let tempFeelElement = document.querySelector("#temp-feel");
+  tempFeelElement.innerHTML = Math.round(fahrenheitFeel);
+  let tempFeelUnit = document.querySelector("#temp-feel-unit");
+  tempFeelUnit.innerHTML = `°F`;
+
+  let windElement = document.querySelector("#wind-now");
+  windElement.innerHTML = Math.round(windSpeed);
+  let windUnitElement = document.querySelector("#wind-unit");
+  windUnitElement.innerHTML = ` mph`;
 }
 
 searchCity("New York");
 
 let fahrenheitTemperature = null;
+let fahrenheitFeel = null;
+let windSpeed = null;
 
 let cityForm = document.querySelector("#city-search-form");
 cityForm.addEventListener("submit", handleSubmit);
