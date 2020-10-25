@@ -132,6 +132,10 @@ footer {
   width: 80px;
 }
 
+.weather-forecast img {
+  float: center;
+}
+
 .temp-now {
   font-size: 54px;
   font-weight: 300px;

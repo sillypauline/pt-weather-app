@@ -3,7 +3,9 @@
 // and time using JavaScript: Tuesday 16:00
 let now = new Date();
 
-function formatDate() {
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
+
   let days = [
     "Sunday",
     "Monday",
@@ -14,17 +16,23 @@ function formatDate() {
     "Saturday",
   ];
 
-  let day = days[now.getDay()];
-  let hour = now.getHours();
-  let minute = now.getMinutes();
-
-  let formatDate = `${day}, ${hour}:${minute}`;
-
-  return formatDate;
+  let day = days[date.getDay()];
+  return `${day} ${formatHours(timestamp)}`;
 }
 
-let timeNow = document.querySelector("#day-time");
-timeNow.innerHTML = formatDate(now);
+function formatHours(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  return `${hours}:${minutes}`;
+}
 
 // WEEK 5 HOMEWORK
 // https://api.openweathermap.org/data/2.5/weather?q=paris&appid=33b8b562348753ed5be1de7a4e815fb7
@@ -57,8 +65,33 @@ function showTemperature(response) {
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
+// FORECAST API
 function displayForecast(response) {
-  console.log(response.data);
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = null;
+  let forecast = null;
+
+  for (let index = 0; index < 6; index++) {
+    forecast = response.data.list[index];
+    forecastElement.innerHTML += `
+      <div class="col-2">
+        <h3>
+          ${formatHours(forecast.dt * 1000)}
+        </h3>
+        <img
+          src="http://openweathermap.org/img/wn/${
+            forecast.weather[0].icon
+          }@2x.png"
+        />
+        <div class="weather-forecast-temperature">
+          <strong>
+          ${Math.round(forecast.main.temp_max)}°
+          </strong> 
+          ${Math.round(forecast.main.temp_min)}°
+        </div>
+    </div>
+    `;
+  }
 }
 
 function searchCity(city) {
