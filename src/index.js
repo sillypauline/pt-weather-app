@@ -1,7 +1,6 @@
 // FEATURE 1
 // In your project, display the current date
 // and time using JavaScript: Tuesday 16:00
-let now = new Date();
 
 function formatDate(timestamp) {
   let date = new Date(timestamp);
@@ -22,16 +21,15 @@ function formatDate(timestamp) {
 
 function formatHours(timestamp) {
   let date = new Date(timestamp);
-  let hours = date.getHours();
-  if (hours < 10) {
-    hours = `0${hours}`;
+  let hour = date.getHours();
+  if (hour < 10) {
+    hour = `0${hour}`;
   }
-  let minutes = date.getMinutes();
-  if (minutes < 10) {
-    minutes = `0${minutes}`;
+  let minute = date.getMinutes();
+  if (minute < 10) {
+    minute = `0${minute}`;
   }
-
-  return `${hours}:${minutes}`;
+  return `${hour}:${minute}`;
 }
 
 // WEEK 5 HOMEWORK
@@ -73,6 +71,7 @@ function displayForecast(response) {
 
   for (let index = 0; index < 6; index++) {
     forecast = response.data.list[index];
+
     forecastElement.innerHTML += `
       <div class="col-2">
         <h3>
@@ -84,10 +83,14 @@ function displayForecast(response) {
           }@2x.png"
         />
         <div class="weather-forecast-temperature">
-          <strong>
-          ${Math.round(forecast.main.temp_max)}°
-          </strong> 
+          <span class="forecast-max">
+            <strong>
+            ${Math.round(forecast.main.temp_max)}°
+            </strong> 
+          </span>
+          <span class="forecast-min">
           ${Math.round(forecast.main.temp_min)}°
+          </span>
         </div>
     </div>
     `;
@@ -118,8 +121,6 @@ function searchLocation(position) {
   let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather";
   let apiUrl = `${apiEndpoint}?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(showTemperature);
-  console.log(position.coords.latitude);
-  console.log(position.coords.longitude);
 }
 
 function getCurrentLocation(event) {

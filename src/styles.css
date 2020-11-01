@@ -71,9 +71,16 @@ footer {
   text-align: center;
   font-family: "Roboto", sans-serif;
   font-size: 10px;
+  font-weight: light;
   color: white;
   padding: 0;
   margin: 10px 10px 10px 10px;
+}
+
+.footer-github-link:hover,
+.footer-linkedin-link:hover {
+  text-decoration: underline overline;
+  color: #e2e2e2;
 }
 
 .weather-app-wrapper {
@@ -132,10 +139,6 @@ footer {
   width: 80px;
 }
 
-.weather-forecast img {
-  float: center;
-}
-
 .temp-now {
   font-size: 54px;
   font-weight: 300px;
@@ -150,6 +153,7 @@ footer {
   position: relative;
   top: -28px;
   left: -6px;
+  color: white;
 }
 
 .today-temp .active {
@@ -195,9 +199,13 @@ footer {
   text-align: center;
   font-family: "Roboto", sans-serif;
   font-size: 14px;
-  font-weight: lighter;
+  font-weight: 75;
   color: white;
   margin: 0;
+}
+
+.weather-forecast-temperature img {
+  float: center;
 }
 
 .card-text {

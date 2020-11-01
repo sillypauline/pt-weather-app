@@ -70,7 +70,9 @@
                 <div class="current-city-date">
                   <h1 id="city-name"></h1>
                   <ul>
-                    <li id="day-time">Last updated: Thursday, 1:28</li>
+                    <li>
+                      Last updated: <span class="day-time" id="day-time"></span>
+                    </li>
                     <li id="today-description">I've got Sunshine...</li>
                   </ul>
                 </div>
@@ -129,9 +131,7 @@
             <hr />
 
             <!-- WEATHER FORECAST -->
-            <div class="row weather-forecast" id="forecast">
-              <!-- DAY 1 FORECAST -->
-            </div>
+            <div class="row weather-forecast" id="forecast"></div>
             <!-- END OF FORECAST WEATHER -->
           </div>
           <!--END OF CARD BODY-->
@@ -145,13 +145,19 @@
     <footer>
       <a
         href="https://github.com/sillypauline/pt-weather-app"
-        id="footer-github-link"
+        class="footer-github-link"
         target="_blank"
       >
         Open-source code</a
       >
-
-      by Pauline Trinh.
+      by
+      <a
+        href="https://linkedin.com/in/paulinetrinh"
+        class="footer-linkedin-link"
+        target="_blank"
+      >
+        Pauline Trinh</a
+      >.
     </footer>
 
     <script src="src/index.js"></script>
