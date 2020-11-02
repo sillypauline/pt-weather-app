@@ -118,9 +118,13 @@ function handleSubmit(event) {
 function searchLocation(position) {
   let apiKey = "33b8b562348753ed5be1de7a4e815fb7";
   let units = "imperial";
-  let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather";
-  let apiUrl = `${apiEndpoint}?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=${units}`;
+  let apiEndpoint = "https://api.openweathermap.org/data/2.5/";
+  let apiUrl = `${apiEndpoint}weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=${units}`;
+
   axios.get(apiUrl).then(showTemperature);
+
+  apiUrl = `${apiEndpoint}forecast?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function getCurrentLocation(event) {
